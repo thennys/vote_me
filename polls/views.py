@@ -1,5 +1,5 @@
 from django.db.models import F
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.views import generic
@@ -14,7 +14,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return the last seven published questions."""
-        return Question.objects.order_by("-created")[:7]
+        return Question.objects.order_by("-pub_date")[:7]
 
 
 class DetailView(generic.DetailView):
